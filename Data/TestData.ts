@@ -17,3 +17,5 @@ import { faker } from '@faker-js/faker';
     export const samplePassword = "pwd"
 
     export const sucMessageExp = "Data loaded with AJAX get request."
+
+    export const fileNameExpected = "TEST.txt"

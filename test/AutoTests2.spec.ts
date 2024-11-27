@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test'
-import { uitestingplaygroundlink,sucMessageExp } from "../Data/TestData"
+import { uitestingplaygroundlink,sucMessageExp,fileNameExpected } from "../Data/TestData"
 import { HomePage } from '../Page - Objects/HomePage'
 import { FileUploadPage } from '../Page - Objects/FileUploadPage'
 import { AJAXDataPage } from '../Page - Objects/AJAXDataPage'
@@ -13,7 +13,8 @@ test ('File Upload',async ({page})=>{
     const homePage = new HomePage(page)
     await homePage.gotofileUploadPage()
     const fileUploadPage = new FileUploadPage(page)
-    await fileUploadPage.uploadFiles()
+    const fileName = await fileUploadPage.uploadFiles()
+    expect (fileName).toEqual(fileNameExpected)
 })
 
 
@@ -23,5 +24,5 @@ test ('Verify "AJAX Data Load" Functionality',async ({page})=>{
     await homePage.gotoajaxDataLinkPage()
     const ajaxDataPage = new AJAXDataPage(page)
     const sucMessage = await ajaxDataPage.clickOnAjaxButton()
-    expect(sucMessageExp).toEqual(sucMessage)
+    expect(sucMessage).toEqual(sucMessageExp)
 })
