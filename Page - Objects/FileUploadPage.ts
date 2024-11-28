@@ -16,7 +16,7 @@ export class FileUploadPage{
         const fileChooserPromise = this.page.waitForEvent('filechooser')
         await this.inputArea.click()  
         const fileChooser = await fileChooserPromise
-        await fileChooser.setFiles('C:/Users/admin/OneDrive/Documents/Task 2/Taks-2/Data/Test Files/TEST.txt')
+        await fileChooser.setFiles('Data/Test Files/TEST.txt')
         return await this.successFileArea.innerText()
     }
     
